@@ -1,0 +1,14 @@
+2025-08-12T03:17:38.182243739+00:00 | input |  | invalid: Filename cannot be empty
+2025-08-12T03:21:33.795367644+00:00 | backup | sample.txt | ok -> sample.txt.bak
+2025-08-12T13:18:20.608731821+00:00 | backup | sample.txt | ok -> sample.txt.bak.1
+2025-08-12T13:19:13.674295989+00:00 | backup | missing.txt | error: Cannot open source 'missing.txt': No such file or directory (os error 2)
+2025-08-12T13:20:02.532965153+00:00 | input | ../evil.txt | invalid: Directories are not allowed — use a simple file name
+2025-08-12T13:20:59.926574170+00:00 | input | inva*lid.txt | invalid: Filename contains invalid characters (allowed: letters, numbers, ., -, _)
+2025-08-12T13:21:35.453415259+00:00 | input |  | invalid: Filename cannot be empty
+2025-08-12T13:33:47.764737872+00:00 | restore | sample.txt | ok <- sample.txt.bak
+2025-08-12T13:34:34.053394394+00:00 | restore | sample.txt | error: Backup 'sample.txt.bak' does not exist
+2025-08-12T13:35:50.460196887+00:00 | input | ../evil.txt | invalid: Directories are not allowed — use a simple file name
+2025-08-12T13:37:35.525315740+00:00 | delete | sample.txt | ok
+2025-08-12T13:38:04.709469066+00:00 | delete | ghost.txt | error: 'ghost.txt' does not exist
+2025-08-12T13:39:06.340083981+00:00 | input | =<101+ chars> | invalid: Filename contains invalid characters (allowed: letters, numbers, ., -, _)
+2025-08-12T13:40:06.491591136+00:00 | input | /etc/passwd | invalid: Absolute paths are not allowed
